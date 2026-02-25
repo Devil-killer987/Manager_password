@@ -34,7 +34,7 @@ namespace Manager_password
 
         private void CreateProf_Click(object sender, RoutedEventArgs e)
         {
-            using (var dbContext = new AppDbContext)
+            using (var dbContext = new AppDbContext())
             {
 
             
