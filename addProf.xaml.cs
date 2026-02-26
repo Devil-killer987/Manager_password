@@ -37,7 +37,7 @@ namespace Manager_password
             using (var dbContext = new AppDbContext())
             {
 
-            
+                var q = 8;
             var nam = name.Text;
             var ps = pass.Text;
             var newUser = new User { Name = nam, Password = ps };
