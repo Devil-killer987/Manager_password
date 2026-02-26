@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,7 @@ namespace Manager_password
         public MainWindow()
         {
             InitializeComponent();
+            loadcomb();
         }
 
         private void AddProfile_Click(object sender, RoutedEventArgs e)
@@ -31,5 +34,28 @@ namespace Manager_password
             window.Show();
             this.Close();
         }
+        private void loadcomb()
+        {
+            using (var db = new AppDbContext())
+            {
+                try
+                {
+                    db.Database.EnsureCreated();
+
+                    // Загружаем всех пользователей
+                    var users = db.Users
+                        .OrderBy(u => u.Name)
+                        .ToList();
+
+                    // Привязываем к ComboBox
+                    nameProfile.ItemsSource = users;
+                    nameProfile.DisplayMemberPath = "Name"; // Отображаем имя
+                    nameProfile.SelectedValuePath = "Id";
+                }
+                catch { }
+                          
+                }
+            }
+        }
     }
-}
+

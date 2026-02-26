@@ -13,12 +13,12 @@ namespace Manager_password
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=mydatabase.db");
-        }
+            // Простой путь к базе в папке приложения
+            string dbPath = System.IO.Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "users.db");
 
-        public void EnsureDatabaseCreated()
-        {
-            Database.EnsureCreated();
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
     }
 }

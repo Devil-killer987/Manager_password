@@ -36,12 +36,15 @@ namespace Manager_password
         {
             using (var dbContext = new AppDbContext())
             {
+                dbContext.Database.EnsureCreated();
 
-            
-            var nam = name.Text;
+
+                var nam = name.Text;
             var ps = pass.Text;
             var newUser = new User { Name = nam, Password = ps };
             dbContext.Add(newUser);
+                dbContext.SaveChanges();
+                MessageBox.Show("профиль добавлен");
         }
     }
        

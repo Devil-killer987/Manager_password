@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBox x:Name="PassPrifile" HorizontalAlignment="Left" Height="23" Margin="355,225,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="nameProfile" HorizontalAlignment="Left" Margin="355,165,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="nameProfile"  HorizontalAlignment="Left" Margin="355,165,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="EnterPrifile" Content="Button" HorizontalAlignment="Left" Margin="390,285,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Name="AddProfile" Content="Button" HorizontalAlignment="Left" Margin="660,30,0,0" VerticalAlignment="Top" Width="75" Click="AddProfile_Click"/>
 
