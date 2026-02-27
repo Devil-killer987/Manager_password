@@ -12,18 +12,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SQLitePCL;
 
 namespace Manager_password
 {
+
     /// <summary>
     /// Логика взаимодействия для addProf.xaml
     /// </summary>
     public partial class addProf : Window
     {
+
         public addProf()
         {
             InitializeComponent();
+            
         }
+      
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
@@ -34,10 +39,12 @@ namespace Manager_password
 
         private void CreateProf_Click(object sender, RoutedEventArgs e)
         {
+            
+
+            
             using (var dbContext = new AppDbContext())
             {
                 dbContext.Database.EnsureCreated();
-
 
                 var nam = name.Text;
             var ps = pass.Text;
